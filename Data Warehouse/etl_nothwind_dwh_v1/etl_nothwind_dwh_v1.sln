@@ -1,0 +1,22 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.31624.102
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{159641D6-6404-4A2A-AE62-294DE0FE8301}") = "etl_nothwind_dwh_v1", "etl_nothwind_dwh_v1.dtproj", "{CE2227C9-3E40-4941-978D-ECF660673F94}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Development|Default = Development|Default
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{CE2227C9-3E40-4941-978D-ECF660673F94}.Development|Default.ActiveCfg = Development
+		{CE2227C9-3E40-4941-978D-ECF660673F94}.Development|Default.Build.0 = Development
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {344CABD4-6281-4B76-AD09-B51CAD69E545}
+	EndGlobalSection
+EndGlobal
