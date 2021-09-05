@@ -1,0 +1,82 @@
+﻿<DeploymentSnapshot xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ddl2="http://schemas.microsoft.com/analysisservices/2003/engine/2" xmlns:ddl2_2="http://schemas.microsoft.com/analysisservices/2003/engine/2/2" xmlns:ddl100_100="http://schemas.microsoft.com/analysisservices/2008/engine/100/100" xmlns:ddl200="http://schemas.microsoft.com/analysisservices/2010/engine/200" xmlns:ddl200_200="http://schemas.microsoft.com/analysisservices/2010/engine/200/200" xmlns:ddl300="http://schemas.microsoft.com/analysisservices/2011/engine/300" xmlns:ddl300_300="http://schemas.microsoft.com/analysisservices/2011/engine/300/300" xmlns:ddl400="http://schemas.microsoft.com/analysisservices/2012/engine/400" xmlns:ddl400_400="http://schemas.microsoft.com/analysisservices/2012/engine/400/400" xmlns:ddl500="http://schemas.microsoft.com/analysisservices/2013/engine/500" xmlns:ddl500_500="http://schemas.microsoft.com/analysisservices/2013/engine/500/500" xmlns:dwd="http://schemas.microsoft.com/DataWarehouse/Designer/1.0">
+  <Target>
+    <Database>ssas_cubo_mutidimensional_v1</Database>
+    <Server>DESKTOP-EHQ1PIJ\SQLSERVER</Server>
+    <ConnectionString>Data Source=DESKTOP-EHQ1PIJ\SQLSERVER;Timeout=0</ConnectionString>
+  </Target>
+  <Options>
+    <TransactionalDeployment>false</TransactionalDeployment>
+    <PartitionDeployment>DeployPartitions</PartitionDeployment>
+    <RoleDeployment>DeployRolesRetainMembers</RoleDeployment>
+    <ProcessingOption>DoNotProcess</ProcessingOption>
+    <OutputScript></OutputScript>
+    <ImpactAnalysisFile></ImpactAnalysisFile>
+    <ConfigurationSettingsDeployment>Deploy</ConfigurationSettingsDeployment>
+    <OptimizationSettingsDeployment>Deploy</OptimizationSettingsDeployment>
+    <WriteBackTableCreation>UseExisting</WriteBackTableCreation>
+  </Options>
+  <Snapshot>
+    <ObjectSnapshots>
+      <ObjectSnapshot>
+        <Type>Microsoft.AnalysisServices.RelationalDataSource</Type>
+        <TimeStamp>eWNyPviiWnu+oPcuOD5Rtx1eL4Q=25/08/2021 00:28:2325/08/2021 00:03:09</TimeStamp>
+        <ID>
+          <String>Northwind Dwh</String>
+        </ID>
+      </ObjectSnapshot>
+      <ObjectSnapshot>
+        <Type>Microsoft.AnalysisServices.DataSourceView</Type>
+        <TimeStamp>I39RFBrHfjaqBzEWmWUZq+5kt+E=25/08/2021 00:03:4625/08/2021 00:03:46</TimeStamp>
+        <ID>
+          <String>Northwind Dwh</String>
+        </ID>
+      </ObjectSnapshot>
+      <ObjectSnapshot>
+        <Type>Microsoft.AnalysisServices.Dimension</Type>
+        <TimeStamp>XSaOCiUZz080FLdIZmA1LbB373A=25/08/2021 00:18:5825/08/2021 00:16:34</TimeStamp>
+        <ID>
+          <String>Dim Employees</String>
+        </ID>
+      </ObjectSnapshot>
+      <ObjectSnapshot>
+        <Type>Microsoft.AnalysisServices.Dimension</Type>
+        <TimeStamp>97oWnI1BbKIHW8fYaYD+6+KaaY4=25/08/2021 00:19:1025/08/2021 00:16:34</TimeStamp>
+        <ID>
+          <String>Dim Customers</String>
+        </ID>
+      </ObjectSnapshot>
+      <ObjectSnapshot>
+        <Type>Microsoft.AnalysisServices.Dimension</Type>
+        <TimeStamp>kA+D0pWh24Y3VNxK+RbfpN3MiMk=25/08/2021 00:19:2025/08/2021 00:16:34</TimeStamp>
+        <ID>
+          <String>Dim Products</String>
+        </ID>
+      </ObjectSnapshot>
+      <ObjectSnapshot>
+        <Type>Microsoft.AnalysisServices.Dimension</Type>
+        <TimeStamp>Vc0wtGAApPpgDiTOAs5XJ7P4zkY=25/08/2021 00:19:3225/08/2021 00:16:35</TimeStamp>
+        <ID>
+          <String>Dim Categories</String>
+        </ID>
+      </ObjectSnapshot>
+      <ObjectSnapshot>
+        <Type>Microsoft.AnalysisServices.Cube</Type>
+        <TimeStamp>J41/2N5QCJOTNg15Yhbs/wwDoXE=25/08/2021 00:19:3225/08/2021 00:16:34t3FYuBVre8zH9ix+IgqJhsV9nZI=25/08/2021 00:16:3525/08/2021 00:16:34</TimeStamp>
+        <ID>
+          <String>Northwind Dwh</String>
+        </ID>
+      </ObjectSnapshot>
+    </ObjectSnapshots>
+    <DatabaseSnapshot>
+      <Type>Microsoft.AnalysisServices.Database</Type>
+      <TimeStamp>cCvSEU712yEF/ZlDfPVynjJWZpo=24/08/2021 23:03:0524/08/2021 23:03:04</TimeStamp>
+      <ID>
+        <String>ssas_cubo_mutidimensional_v1</String>
+      </ID>
+    </DatabaseSnapshot>
+    <Granularity>Coarse</Granularity>
+  </Snapshot>
+  <AssemblyLocations />
+  <ProcessingComplete>true</ProcessingComplete>
+  <LastDeployed>2021-08-25T06:31:32.756667Z</LastDeployed>
+</DeploymentSnapshot>

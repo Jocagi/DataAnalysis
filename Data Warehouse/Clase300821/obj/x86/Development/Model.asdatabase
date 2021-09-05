@@ -1,0 +1,13 @@
+{
+  "name": "Clase300821",
+  "compatibilityLevel": 1500,
+  "model": {
+    "culture": "en-US",
+    "annotations": [
+      {
+        "name": "ClientCompatibilityLevel",
+        "value": "600"
+      }
+    ]
+  }
+}

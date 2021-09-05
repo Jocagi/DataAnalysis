@@ -1,0 +1,10 @@
+﻿<?xml version="1.0"?>
+<DTS:ConnectionManager xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:ObjectName="DESKTOP-EHQ1PIJ_SQLSERVER.Northwind_dwh_v2"
+  DTS:DTSID="{9D4C6BCD-C8BE-44A8-9CE6-DDF6D227CDC6}"
+  DTS:CreationName="ADO">
+  <DTS:ObjectData>
+    <DTS:ConnectionManager
+      DTS:ConnectionString="Data Source=DESKTOP-EHQ1PIJ\SQLSERVER;Initial Catalog=Northwind_dwh_v2;Provider=SQLNCLI11.1;Integrated Security=SSPI;Auto Translate=False;" />
+  </DTS:ObjectData>
+</DTS:ConnectionManager>
