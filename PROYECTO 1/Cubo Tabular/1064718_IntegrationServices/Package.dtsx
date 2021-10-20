@@ -1,0 +1,225 @@
+﻿<?xml version="1.0"?>
+<DTS:Executable xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:refId="Package"
+  DTS:CreationDate="9/27/2021 4:08:51 PM"
+  DTS:CreationName="Microsoft.Package"
+  DTS:CreatorComputerName="DESKTOP-7C1VTM0"
+  DTS:CreatorName="DESKTOP-7C1VTM0\Jose"
+  DTS:DTSID="{9051B7F9-EC11-42E8-A5FB-6475C2B31EAA}"
+  DTS:ExecutableType="Microsoft.Package"
+  DTS:LastModifiedProductVersion="15.0.2000.170"
+  DTS:LocaleID="1033"
+  DTS:ObjectName="Package"
+  DTS:PackageType="5"
+  DTS:VersionBuild="3"
+  DTS:VersionGUID="{13203DDF-749D-4C2B-9942-2E3762766121}">
+  <DTS:Property
+    DTS:Name="PackageFormatVersion">8</DTS:Property>
+  <DTS:ConnectionManagers>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[DESKTOP-7C1VTM0.1064718_DWH.Joacagi]"
+      DTS:CreationName="OLEDB"
+      DTS:DTSID="{A09F8C25-F079-44B2-B940-C6D2AF728CB4}"
+      DTS:ObjectName="DESKTOP-7C1VTM0.1064718_DWH.Joacagi">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectRetryCount="1"
+          DTS:ConnectRetryInterval="5"
+          DTS:ConnectionString="Data Source=DESKTOP-7C1VTM0;User ID=Joacagi;Initial Catalog=1064718_DWH;Provider=MSOLEDBSQL.1;Persist Security Info=True;Auto Translate=False;">
+          <DTS:Password
+            DTS:Name="Password"
+            Sensitive="1"
+            Encrypted="1">AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAArDA7lDjTHUuVHbVFHW9eawAAAAAIAAAARABUAFMAAAAQZgAAAAEAACAAAABmuBAuO+PRdweubdzfZFjRjEd13BpK5NAZ2PxensGG3QAAAAAOgAAAAAIAACAAAABXonDaa66t7iRjRz/AuGFlY68sRCRkGU00mwzVR0ITxxAAAACSVpACdzBZYrC8MTzZVIPWQAAAAEP2D+QAXOm7miC3ZNTs0SW3Zwz/Ztv4T1ETkMeX57PY9aEd12aaQXEYuDNCvYShWtU21KgYsmyGN7kBkajjR0c</DTS:Password>
+        </DTS:ConnectionManager>
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[DESKTOP-7C1VTM0.1064718_DWH.Jocagi 1]"
+      DTS:CreationName="OLEDB"
+      DTS:DTSID="{2531EF23-C173-4F6D-8AFF-1ED09709D1D9}"
+      DTS:ObjectName="DESKTOP-7C1VTM0.1064718_DWH.Jocagi 1">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectRetryCount="1"
+          DTS:ConnectRetryInterval="5"
+          DTS:ConnectionString="Data Source=DESKTOP-7C1VTM0;User ID=Jocagi;Initial Catalog=1064718_DWH;Provider=SQLNCLI11.1;Auto Translate=False;">
+          <DTS:Password
+            DTS:Name="Password"
+            Sensitive="1"
+            Encrypted="1">AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAArDA7lDjTHUuVHbVFHW9eawAAAAAIAAAARABUAFMAAAAQZgAAAAEAACAAAAB98KB9k6slRIqFPXcmeGVuxC+0eQaiJ+xkOPpVDB78LwAAAAAOgAAAAAIAACAAAADHVeU4nCRs3x0w4e8p3vi0gKMm5Ul8vkKdZd8bQsntCBAAAAA3mxP5X/7LRWjMbw4fEttLQAAAAHXjgbu9Ceg46ScmJo3T7rErB2V/I3XQQwDvhGiEC9XBm9+6DebQdrimMfU3a29nCINmH/3POnMvcuwvqIa4lIQ</DTS:Password>
+        </DTS:ConnectionManager>
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+  </DTS:ConnectionManagers>
+  <DTS:Variables />
+  <DTS:Executables>
+    <DTS:Executable
+      DTS:refId="Package\Execute SQL Task"
+      DTS:CreationName="Microsoft.ExecuteSQLTask"
+      DTS:Description="Execute SQL Task"
+      DTS:DTSID="{2ABE90E8-15BE-4E5F-BD33-F12C78E5282E}"
+      DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Execute SQL Task"
+      DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2019; © 2019 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+      DTS:ThreadHint="0">
+      <DTS:Variables />
+      <DTS:PropertyExpression
+        DTS:Name="SqlStatementSource">"USE [1064718_DWH];
+GO
+DELETE FROM [1064718_DWH].[Fact].[Ventas];
+DBCC CHECKIDENT ('[1064718_DWH].[Fact].[Ventas]',RESEED, 0);
+GO
+DELETE FROM [1064718_DWH].[Dim].[Cliente];
+DBCC CHECKIDENT ('[1064718_DWH].[Dim].[Cliente]',RESEED, 0);
+GO
+DELETE FROM [1064718_DWH].[Dim].[Moneda];
+DBCC CHECKIDENT ('[1064718_DWH].[Dim].[Moneda]',RESEED, 0);
+GO
+DELETE FROM [1064718_DWH].[Dim].[Producto];
+DBCC CHECKIDENT ('[1064718_DWH].[Dim].[Producto]',RESEED, 0);
+GO
+DELETE FROM [1064718_DWH].[Dim].[Fecha];
+GO
+
+USE [AdventureWorks2019]
+GO
+
+INSERT INTO 
+	[1064718_DWH].[Dim].[Cliente]
+SELECT DISTINCT
+	C.CustomerID AS CustomerKey,
+	P.FirstName AS FirstName,
+	P.LastName AS LastName,
+	PD.BirthDate AS BirthDate,
+	PD.Gender AS Gender,
+	PP.PhoneNumber AS Phone
+FROM Sales.Customer C
+INNER JOIN Person.Person P 
+	ON C.PersonID=P.BusinessEntityID
+LEFT JOIN Sales.vPersonDemographics PD 
+	ON P.BusinessEntityID=PD.BusinessEntityID
+LEFT JOIN Person.PersonPhone PP
+	ON P.BusinessEntityID=PP.BusinessEntityID
+GO
+
+INSERT INTO 
+	[1064718_DWH].[Dim].[Moneda]
+SELECT DISTINCT 
+	CurrencyCode AS CurrencyKey,
+	Name AS CurrencyName
+FROM Sales.Currency;
+
+GO
+
+INSERT INTO 
+	[1064718_DWH].[Dim].[Producto]
+SELECT 
+	ProductID AS ProductKey,
+	Name AS ProductName,
+	ProductNumber AS ProductNumber
+FROM Production.Product;
+
+GO
+
+DECLARE @StartDate DATETIME
+DECLARE @EndDate DATETIME
+SET @StartDate = '2010-01-01'
+SET @EndDate = '2015-12-31'
+SET DATEFIRST 1;
+
+WHILE @StartDate &lt;= @EndDate
+      BEGIN
+             INSERT INTO [1064718_DWH].[Dim].[Fecha]
+             (
+                    [CalendarDate]
+				   ,[CalendarKey]
+				   ,[dayOfWeekNum]
+				   ,[dayOfWeekName]
+				   ,[dayOfCalendarMonthNum]
+				   ,[dayOfCalendarYearNum]
+				   ,[CalendarWeekNum]
+				   ,[calendarMonthNum]
+				   ,[calendarMonthName]
+				   ,[calendarQuarterNum]
+				   ,[calendarYearNum]
+             )
+             SELECT
+                   @StartDate,
+				   CONVERT(nvarchar(8), @StartDate, 112),
+				   DATEPART(WEEKDAY, @StartDate),
+				   DATENAME(WEEKDAY, ( DATEPART(WEEKDAY, @StartDate)  + @@DATEFIRST + 5) % 7),
+				   DATEPART(DAY, @StartDate),
+				   DATEPART(DAYOFYEAR, @StartDate),
+				   DATEPART(WEEK, @StartDate),
+				   DATEPART(MONTH, @StartDate),
+				   DATENAME(MONTH, DATEPART(MONTH, @StartDate)),
+				   DATEPART(QUARTER, @StartDate),
+				   DATEPART(YEAR, @StartDate)
+
+             SET @StartDate = DATEADD(dd, 1, @StartDate)
+      END
+GO
+
+INSERT INTO 
+	[1064718_DWH].[Fact].[Ventas]
+(
+	   [CustomerKey]
+      ,[CurrencyKey]
+      ,[ProductKey]
+      ,[CalendarKey]
+      ,[UnitPrice]
+      ,[OrderQuantity]
+      ,[TotalProductCost]
+      ,[OrderDate]
+      ,[DueDate]
+)
+SELECT
+	C.CustomerID AS CustomerKey,
+	CurrencyCode AS CurrencyKey,
+	ProductID AS ProductKey,
+	CONVERT(nvarchar(8), OrderDate, 112) AS CalendarKey,
+	UnitPrice AS UnitPrice,
+	OrderQty AS OrderQuantity,
+	(UnitPrice * OrderQty) AS TotalProductCost,
+	OrderDate AS OrderDate,
+	DueDate AS DueDate
+FROM Sales.SalesOrderDetail SOD
+INNER JOIN Sales.SalesOrderHeader SOH 
+	ON SOD.SalesOrderID = SOH.SalesOrderID
+INNER JOIN Sales.SalesTerritory ST
+	ON SOH.TerritoryID = ST.TerritoryID
+INNER JOIN Sales.CountryRegionCurrency CRC
+	ON ST.CountryRegionCode = CRC.CountryRegionCode
+INNER JOIN Sales.Customer C 
+	ON SOH.CustomerID = C.CustomerID;
+
+GO"</DTS:PropertyExpression>
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{2531EF23-C173-4F6D-8AFF-1ED09709D1D9}"
+          SQLTask:SqlStatementSource="USE [1064718_DWH];&#xA;GO&#xA;DELETE FROM [1064718_DWH].[Fact].[Ventas];&#xA;DBCC CHECKIDENT ('[1064718_DWH].[Fact].[Ventas]',RESEED, 0);&#xA;GO&#xA;DELETE FROM [1064718_DWH].[Dim].[Cliente];&#xA;DBCC CHECKIDENT ('[1064718_DWH].[Dim].[Cliente]',RESEED, 0);&#xA;GO&#xA;DELETE FROM [1064718_DWH].[Dim].[Moneda];&#xA;DBCC CHECKIDENT ('[1064718_DWH].[Dim].[Moneda]',RESEED, 0);&#xA;GO&#xA;DELETE FROM [1064718_DWH].[Dim].[Producto];&#xA;DBCC CHECKIDENT ('[1064718_DWH].[Dim].[Producto]',RESEED, 0);&#xA;GO&#xA;DELETE FROM [1064718_DWH].[Dim].[Fecha];&#xA;GO&#xA;&#xA;USE [AdventureWorks2019]&#xA;GO&#xA;&#xA;INSERT INTO &#xA;&#x9;[1064718_DWH].[Dim].[Cliente]&#xA;SELECT DISTINCT&#xA;&#x9;C.CustomerID AS CustomerKey,&#xA;&#x9;P.FirstName AS FirstName,&#xA;&#x9;P.LastName AS LastName,&#xA;&#x9;PD.BirthDate AS BirthDate,&#xA;&#x9;PD.Gender AS Gender,&#xA;&#x9;PP.PhoneNumber AS Phone&#xA;FROM Sales.Customer C&#xA;INNER JOIN Person.Person P &#xA;&#x9;ON C.PersonID=P.BusinessEntityID&#xA;LEFT JOIN Sales.vPersonDemographics PD &#xA;&#x9;ON P.BusinessEntityID=PD.BusinessEntityID&#xA;LEFT JOIN Person.PersonPhone PP&#xA;&#x9;ON P.BusinessEntityID=PP.BusinessEntityID&#xA;GO&#xA;&#xA;INSERT INTO &#xA;&#x9;[1064718_DWH].[Dim].[Moneda]&#xA;SELECT DISTINCT &#xA;&#x9;CurrencyCode AS CurrencyKey,&#xA;&#x9;Name AS CurrencyName&#xA;FROM Sales.Currency;&#xA;&#xA;GO&#xA;&#xA;INSERT INTO &#xA;&#x9;[1064718_DWH].[Dim].[Producto]&#xA;SELECT &#xA;&#x9;ProductID AS ProductKey,&#xA;&#x9;Name AS ProductName,&#xA;&#x9;ProductNumber AS ProductNumber&#xA;FROM Production.Product;&#xA;&#xA;GO&#xA;&#xA;DECLARE @StartDate DATETIME&#xA;DECLARE @EndDate DATETIME&#xA;SET @StartDate = '2010-01-01'&#xA;SET @EndDate = '2015-12-31'&#xA;SET DATEFIRST 1;&#xA;&#xA;WHILE @StartDate &lt;= @EndDate&#xA;      BEGIN&#xA;             INSERT INTO [1064718_DWH].[Dim].[Fecha]&#xA;             (&#xA;                    [CalendarDate]&#xA;&#x9;&#x9;&#x9;&#x9;   ,[CalendarKey]&#xA;&#x9;&#x9;&#x9;&#x9;   ,[dayOfWeekNum]&#xA;&#x9;&#x9;&#x9;&#x9;   ,[dayOfWeekName]&#xA;&#x9;&#x9;&#x9;&#x9;   ,[dayOfCalendarMonthNum]&#xA;&#x9;&#x9;&#x9;&#x9;   ,[dayOfCalendarYearNum]&#xA;&#x9;&#x9;&#x9;&#x9;   ,[CalendarWeekNum]&#xA;&#x9;&#x9;&#x9;&#x9;   ,[calendarMonthNum]&#xA;&#x9;&#x9;&#x9;&#x9;   ,[calendarMonthName]&#xA;&#x9;&#x9;&#x9;&#x9;   ,[calendarQuarterNum]&#xA;&#x9;&#x9;&#x9;&#x9;   ,[calendarYearNum]&#xA;             )&#xA;             SELECT&#xA;                   @StartDate,&#xA;&#x9;&#x9;&#x9;&#x9;   CONVERT(nvarchar(8), @StartDate, 112),&#xA;&#x9;&#x9;&#x9;&#x9;   DATEPART(WEEKDAY, @StartDate),&#xA;&#x9;&#x9;&#x9;&#x9;   DATENAME(WEEKDAY, ( DATEPART(WEEKDAY, @StartDate)  + @@DATEFIRST + 5) % 7),&#xA;&#x9;&#x9;&#x9;&#x9;   DATEPART(DAY, @StartDate),&#xA;&#x9;&#x9;&#x9;&#x9;   DATEPART(DAYOFYEAR, @StartDate),&#xA;&#x9;&#x9;&#x9;&#x9;   DATEPART(WEEK, @StartDate),&#xA;&#x9;&#x9;&#x9;&#x9;   DATEPART(MONTH, @StartDate),&#xA;&#x9;&#x9;&#x9;&#x9;   DATENAME(MONTH, DATEPART(MONTH, @StartDate)),&#xA;&#x9;&#x9;&#x9;&#x9;   DATEPART(QUARTER, @StartDate),&#xA;&#x9;&#x9;&#x9;&#x9;   DATEPART(YEAR, @StartDate)&#xA;&#xA;             SET @StartDate = DATEADD(dd, 1, @StartDate)&#xA;      END&#xA;GO&#xA;&#xA;INSERT INTO &#xA;&#x9;[1064718_DWH].[Fact].[Ventas]&#xA;(&#xA;&#x9;   [CustomerKey]&#xA;      ,[CurrencyKey]&#xA;      ,[ProductKey]&#xA;      ,[CalendarKey]&#xA;      ,[UnitPrice]&#xA;      ,[OrderQuantity]&#xA;      ,[TotalProductCost]&#xA;      ,[OrderDate]&#xA;      ,[DueDate]&#xA;)&#xA;SELECT&#xA;&#x9;C.CustomerID AS CustomerKey,&#xA;&#x9;CurrencyCode AS CurrencyKey,&#xA;&#x9;ProductID AS ProductKey,&#xA;&#x9;CONVERT(nvarchar(8), OrderDate, 112) AS CalendarKey,&#xA;&#x9;UnitPrice AS UnitPrice,&#xA;&#x9;OrderQty AS OrderQuantity,&#xA;&#x9;(UnitPrice * OrderQty) AS TotalProductCost,&#xA;&#x9;OrderDate AS OrderDate,&#xA;&#x9;DueDate AS DueDate&#xA;FROM Sales.SalesOrderDetail SOD&#xA;INNER JOIN Sales.SalesOrderHeader SOH &#xA;&#x9;ON SOD.SalesOrderID = SOH.SalesOrderID&#xA;INNER JOIN Sales.SalesTerritory ST&#xA;&#x9;ON SOH.TerritoryID = ST.TerritoryID&#xA;INNER JOIN Sales.CountryRegionCurrency CRC&#xA;&#x9;ON ST.CountryRegionCode = CRC.CountryRegionCode&#xA;INNER JOIN Sales.Customer C &#xA;&#x9;ON SOH.CustomerID = C.CustomerID;&#xA;&#xA;GO" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+      </DTS:ObjectData>
+    </DTS:Executable>
+  </DTS:Executables>
+  <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
+<!--This CDATA section contains the layout information of the package. The section includes information such as (x,y) coordinates, width, and height.-->
+<!--If you manually edit this section and make a mistake, you can delete it. -->
+<!--The package will still be able to load normally but the previous layout information will be lost and the designer will automatically re-arrange the elements on the design surface.-->
+<Objects
+  Version="8">
+  <!--Each node below will contain properties that do not affect runtime behavior.-->
+  <Package
+    design-time-name="Package">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph">
+        <NodeLayout
+          Size="162.4,41.6"
+          Id="Package\Execute SQL Task"
+          TopLeft="273.571433230323,130.764707716279" />
+      </GraphLayout>
+    </LayoutInfo>
+  </Package>
+</Objects>]]></DTS:DesignTimeProperties>
+</DTS:Executable>

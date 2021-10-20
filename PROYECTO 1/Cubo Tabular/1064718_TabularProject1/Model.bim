@@ -1,0 +1,536 @@
+{
+  "name": "SemanticModel",
+  "compatibilityLevel": 1500,
+  "model": {
+    "culture": "en-US",
+    "dataSources": [
+      {
+        "type": "structured",
+        "name": "SQL/DESKTOP-7C1VTM0;1064718_DWH",
+        "connectionDetails": {
+          "protocol": "tds",
+          "address": {
+            "server": "DESKTOP-7C1VTM0",
+            "database": "1064718_DWH"
+          },
+          "authentication": null,
+          "query": null
+        },
+        "options": {},
+        "credential": {
+          "AuthenticationKind": "UsernamePassword",
+          "kind": "SQL",
+          "path": "desktop-7c1vtm0;1064718_DWH",
+          "Username": "Jocagi",
+          "EncryptConnection": false
+        }
+      }
+    ],
+    "tables": [
+      {
+        "name": "Dim Cliente",
+        "columns": [
+          {
+            "name": "ID",
+            "dataType": "int64",
+            "isHidden": true,
+            "sourceColumn": "CustomerKey"
+          },
+          {
+            "name": "Nombre",
+            "dataType": "string",
+            "sourceColumn": "FirstName"
+          },
+          {
+            "name": "Apellido",
+            "dataType": "string",
+            "sourceColumn": "LastName"
+          },
+          {
+            "name": "Fecha de Nacimiento",
+            "dataType": "dateTime",
+            "sourceColumn": "BirthDate"
+          },
+          {
+            "name": "Género",
+            "dataType": "string",
+            "sourceColumn": "Gender"
+          },
+          {
+            "name": "Teléfono",
+            "dataType": "string",
+            "sourceColumn": "Phone"
+          },
+          {
+            "name": "SurrogateKey",
+            "dataType": "int64",
+            "isHidden": true,
+            "sourceColumn": "SurrogateKey"
+          }
+        ],
+        "partitions": [
+          {
+            "name": "Partition",
+            "dataView": "full",
+            "source": {
+              "type": "m",
+              "expression": [
+                "let",
+                "    Source = #\"SQL/DESKTOP-7C1VTM0;1064718_DWH\",",
+                "    Dim_Cliente = Source{[Schema=\"Dim\",Item=\"Cliente\"]}[Data]",
+                "in",
+                "    Dim_Cliente"
+              ]
+            }
+          }
+        ],
+        "hierarchies": [
+          {
+            "name": "Jerarquía Cliente",
+            "levels": [
+              {
+                "name": "Nombre",
+                "ordinal": 0,
+                "column": "Nombre"
+              },
+              {
+                "name": "Apellido",
+                "ordinal": 1,
+                "column": "Apellido"
+              },
+              {
+                "name": "Fecha de Nacimiento",
+                "ordinal": 2,
+                "column": "Fecha de Nacimiento"
+              },
+              {
+                "name": "Género",
+                "ordinal": 3,
+                "column": "Género"
+              },
+              {
+                "name": "Teléfono",
+                "ordinal": 4,
+                "column": "Teléfono"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "name": "Dim Fecha",
+        "columns": [
+          {
+            "name": "ID",
+            "dataType": "string",
+            "isHidden": true,
+            "sourceColumn": "CalendarKey"
+          },
+          {
+            "name": "Fecha Calendario",
+            "dataType": "dateTime",
+            "sourceColumn": "CalendarDate"
+          },
+          {
+            "name": "NumeroDiaSemana",
+            "dataType": "int64",
+            "sourceColumn": "dayOfWeekNum"
+          },
+          {
+            "name": "NombreDiaSemana",
+            "dataType": "string",
+            "sourceColumn": "dayOfWeekName"
+          },
+          {
+            "name": "NumeroDiaDelMes",
+            "dataType": "int64",
+            "sourceColumn": "dayOfCalendarMonthNum"
+          },
+          {
+            "name": "NumeroDiaDelAño",
+            "dataType": "int64",
+            "sourceColumn": "dayOfCalendarYearNum"
+          },
+          {
+            "name": "NumeroSemanaDelAño",
+            "dataType": "int64",
+            "sourceColumn": "CalendarWeekNum"
+          },
+          {
+            "name": "NumeroMesDelAño",
+            "dataType": "int64",
+            "sourceColumn": "calendarMonthNum"
+          },
+          {
+            "name": "NombreMesDelAño",
+            "dataType": "string",
+            "sourceColumn": "calendarMonthName"
+          },
+          {
+            "name": "NumeroTrimestre",
+            "dataType": "int64",
+            "sourceColumn": "calendarQuarterNum"
+          },
+          {
+            "name": "NumeroAño",
+            "dataType": "int64",
+            "sourceColumn": "calendarYearNum"
+          }
+        ],
+        "partitions": [
+          {
+            "name": "Partition",
+            "dataView": "full",
+            "source": {
+              "type": "m",
+              "expression": [
+                "let",
+                "    Source = #\"SQL/DESKTOP-7C1VTM0;1064718_DWH\",",
+                "    Dim_Fecha = Source{[Schema=\"Dim\",Item=\"Fecha\"]}[Data]",
+                "in",
+                "    Dim_Fecha"
+              ]
+            }
+          }
+        ],
+        "hierarchies": [
+          {
+            "name": "Jerarquía Calendario",
+            "levels": [
+              {
+                "name": "NumeroAño",
+                "ordinal": 0,
+                "column": "NumeroAño"
+              },
+              {
+                "name": "NumeroTrimestre",
+                "ordinal": 1,
+                "column": "NumeroTrimestre"
+              },
+              {
+                "name": "NumeroMesDelAño",
+                "ordinal": 2,
+                "column": "NumeroMesDelAño"
+              },
+              {
+                "name": "NumeroDiaDelMes",
+                "ordinal": 3,
+                "column": "NumeroDiaDelMes"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "name": "Dim Moneda",
+        "columns": [
+          {
+            "name": "ID",
+            "dataType": "string",
+            "isHidden": true,
+            "sourceColumn": "CurrencyKey"
+          },
+          {
+            "name": "Nombre Moneda",
+            "dataType": "string",
+            "sourceColumn": "CurrencyName"
+          },
+          {
+            "name": "SurrogateKey",
+            "dataType": "int64",
+            "isHidden": true,
+            "sourceColumn": "SurrogateKey"
+          }
+        ],
+        "partitions": [
+          {
+            "name": "Partition",
+            "dataView": "full",
+            "source": {
+              "type": "m",
+              "expression": [
+                "let",
+                "    Source = #\"SQL/DESKTOP-7C1VTM0;1064718_DWH\",",
+                "    Dim_Moneda = Source{[Schema=\"Dim\",Item=\"Moneda\"]}[Data]",
+                "in",
+                "    Dim_Moneda"
+              ]
+            }
+          }
+        ],
+        "hierarchies": [
+          {
+            "name": "Jerarquía Moneda",
+            "levels": [
+              {
+                "name": "Nombre Moneda",
+                "ordinal": 0,
+                "column": "Nombre Moneda"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "name": "Dim Producto",
+        "columns": [
+          {
+            "name": "ID",
+            "dataType": "int64",
+            "isHidden": true,
+            "sourceColumn": "ProductKey"
+          },
+          {
+            "name": "Nombre Producto",
+            "dataType": "string",
+            "sourceColumn": "ProductName"
+          },
+          {
+            "name": "Número Producto",
+            "dataType": "string",
+            "sourceColumn": "ProductNumber"
+          },
+          {
+            "name": "SurrogateKey",
+            "dataType": "int64",
+            "isHidden": true,
+            "sourceColumn": "SurrogateKey"
+          }
+        ],
+        "partitions": [
+          {
+            "name": "Partition",
+            "dataView": "full",
+            "source": {
+              "type": "m",
+              "expression": [
+                "let",
+                "    Source = #\"SQL/DESKTOP-7C1VTM0;1064718_DWH\",",
+                "    Dim_Producto = Source{[Schema=\"Dim\",Item=\"Producto\"]}[Data]",
+                "in",
+                "    Dim_Producto"
+              ]
+            }
+          }
+        ],
+        "hierarchies": [
+          {
+            "name": "Jerarquía Producto",
+            "levels": [
+              {
+                "name": "Nombre Producto",
+                "ordinal": 0,
+                "column": "Nombre Producto"
+              },
+              {
+                "name": "Número Producto",
+                "ordinal": 1,
+                "column": "Número Producto"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "name": "Fact Ventas",
+        "columns": [
+          {
+            "name": "ID",
+            "dataType": "int64",
+            "isHidden": true,
+            "sourceColumn": "ID"
+          },
+          {
+            "name": "CustomerKey",
+            "dataType": "int64",
+            "isHidden": true,
+            "sourceColumn": "CustomerKey"
+          },
+          {
+            "name": "CurrencyKey",
+            "dataType": "string",
+            "isHidden": true,
+            "sourceColumn": "CurrencyKey"
+          },
+          {
+            "name": "ProductKey",
+            "dataType": "int64",
+            "isHidden": true,
+            "sourceColumn": "ProductKey"
+          },
+          {
+            "name": "CalendarKey",
+            "dataType": "string",
+            "isHidden": true,
+            "sourceColumn": "CalendarKey"
+          },
+          {
+            "name": "Precio Unitario",
+            "dataType": "decimal",
+            "sourceColumn": "UnitPrice"
+          },
+          {
+            "name": "Cantidad",
+            "dataType": "int64",
+            "sourceColumn": "OrderQuantity"
+          },
+          {
+            "name": "Total",
+            "dataType": "decimal",
+            "sourceColumn": "TotalProductCost"
+          },
+          {
+            "name": "Fecha de Orden",
+            "dataType": "dateTime",
+            "sourceColumn": "OrderDate"
+          },
+          {
+            "name": "Fecha de Entrega",
+            "dataType": "dateTime",
+            "sourceColumn": "DueDate"
+          },
+          {
+            "type": "calculated",
+            "name": "Dias para entrega",
+            "dataType": "int64",
+            "isDataTypeInferred": true,
+            "expression": "DATEDIFF('Fact Ventas'[Fecha de Orden], 'Fact Ventas'[Fecha de Entrega], DAY)"
+          }
+        ],
+        "partitions": [
+          {
+            "name": "Partition",
+            "dataView": "full",
+            "source": {
+              "type": "m",
+              "expression": [
+                "let",
+                "    Source = #\"SQL/DESKTOP-7C1VTM0;1064718_DWH\",",
+                "    Fact_Ventas = Source{[Schema=\"Fact\",Item=\"Ventas\"]}[Data]",
+                "in",
+                "    Fact_Ventas"
+              ]
+            }
+          }
+        ],
+        "measures": [
+          {
+            "name": "Total Ventas",
+            "expression": "SUM('Fact Ventas'[Total])"
+          },
+          {
+            "name": "Promedio de dias para entrega",
+            "expression": "AVERAGE('Fact Ventas'[Dias para entrega])"
+          },
+          {
+            "name": "Producto más vendido",
+            "expression": [
+              " ",
+              "CONCATENATEX(",
+              "    TOPN(",
+              "        1 ",
+              "        , VALUES('Dim Producto'[Nombre Producto]) ",
+              "        , CALCULATE(SUM('Fact Ventas'[Cantidad])) ",
+              "    )",
+              "    , [Nombre Producto]",
+              ")"
+            ]
+          },
+          {
+            "name": "Producto más rentable",
+            "expression": [
+              " ",
+              "CONCATENATEX(",
+              "    TOPN(",
+              "        1 ",
+              "        , VALUES('Dim Producto'[Nombre Producto]) ",
+              "        , CALCULATE(SUM('Fact Ventas'[Total])) ",
+              "    )",
+              "    , [Nombre Producto]",
+              ")"
+            ]
+          },
+          {
+            "name": "Cliente más rentable",
+            "expression": [
+              " ",
+              "CONCATENATEX(",
+              "    TOPN(",
+              "        1 ",
+              "        , VALUES('Dim Cliente') ",
+              "        , CALCULATE(SUM('Fact Ventas'[Total])) ",
+              "    )",
+              "    , [Nombre],\" \",[Apellido]",
+              ")"
+            ]
+          },
+          {
+            "name": "Mes más rentable",
+            "expression": [
+              " ",
+              "CONCATENATEX(",
+              "    TOPN(",
+              "        1 ",
+              "        , VALUES('Dim Fecha'[NombreMesDelAño]) ",
+              "        , CALCULATE(SUM('Fact Ventas'[Total])) ",
+              "    )",
+              "    , [NombreMesDelAño]",
+              ")"
+            ]
+          },
+          {
+            "name": "Año más rentable",
+            "expression": [
+              " ",
+              "CONCATENATEX(",
+              "    TOPN(",
+              "        1 ",
+              "        , VALUES('Dim Fecha'[NumeroAño]) ",
+              "        , CALCULATE(SUM('Fact Ventas'[Total])) ",
+              "    )",
+              "    , [NumeroAño]",
+              ")"
+            ]
+          }
+        ]
+      }
+    ],
+    "relationships": [
+      {
+        "name": "51f69179-1a9a-498e-88ac-29e99fdd2492",
+        "fromTable": "Fact Ventas",
+        "fromColumn": "CustomerKey",
+        "toTable": "Dim Cliente",
+        "toColumn": "ID"
+      },
+      {
+        "name": "377ee44a-4c24-47d6-b21b-94acb19f1d8b",
+        "fromTable": "Fact Ventas",
+        "fromColumn": "CalendarKey",
+        "toTable": "Dim Fecha",
+        "toColumn": "ID"
+      },
+      {
+        "name": "2d125569-f932-47b3-b014-d65f07ea927d",
+        "fromTable": "Fact Ventas",
+        "fromColumn": "CurrencyKey",
+        "toTable": "Dim Moneda",
+        "toColumn": "ID"
+      },
+      {
+        "name": "3bbb7e7b-510c-4f60-945c-da3c8a496bf4",
+        "fromTable": "Fact Ventas",
+        "fromColumn": "ProductKey",
+        "toTable": "Dim Producto",
+        "toColumn": "ID"
+      }
+    ],
+    "annotations": [
+      {
+        "name": "ClientCompatibilityLevel",
+        "value": "600"
+      }
+    ]
+  },
+  "id": "SemanticModel"
+}

@@ -1,0 +1,14 @@
+﻿<?xml version="1.0"?>
+<DTS:ConnectionManager xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:ObjectName="DESKTOP-7C1VTM0.1064718_DWH.Jocagi"
+  DTS:DTSID="{A1CFEB07-7ABA-4028-8C01-405D9E9ACC84}"
+  DTS:CreationName="ADO">
+  <DTS:ObjectData>
+    <DTS:ConnectionManager
+      DTS:ConnectionString="Data Source=DESKTOP-7C1VTM0;User ID=Jocagi;Initial Catalog=1064718_DWH;Provider=SQLNCLI11.1;Auto Translate=False;">
+      <DTS:Password
+        DTS:Name="Password"
+        Sensitive="1">AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAArDA7lDjTHUuVHbVFHW9eawAAAAACAAAAAAAQZgAAAAEAACAAAABQ7n06bmryAcFFbHQVcotbpva9WoBrXtMEP4OXVKPB8wAAAAAOgAAAAAIAACAAAAA9bbUDRUfVE2Zd182XdEySY5aYiArnwG92lrqxOTyXvIAAAAB0PkfKl5F3suQ+xxPjZO5fclka3HrLAFarZUsbVKkCv8oXs1TWuQ4iMcOo+FPEtrjDXM0AVpb+i2BLKlgqg66/qgneXu+UeYBQdObNf9ziktgFzUy21mJ6153gXZSuhAddp1OI/Yw5erzxA3Gx5oI+zFvEXYiDSv4WM5kJETFsREAAAABmEEqapyRkvBGmAdMq8Q62+g5riKUBnMKrJQyi0DzUOs7wpXx+B/rcJKeSQXzQxKVC88trPaMitGyBWxKL0jik</DTS:Password>
+    </DTS:ConnectionManager>
+  </DTS:ObjectData>
+</DTS:ConnectionManager>

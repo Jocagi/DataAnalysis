@@ -1,0 +1,22 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.28307.1622
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{159641D6-6404-4A2A-AE62-294DE0FE8301}") = "etl_northwind_dwh_v1", "etl_northwind_dwh_v1\etl_northwind_dwh_v1.dtproj", "{E14E246C-4314-4801-852B-FEF79E7000AA}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Development|Default = Development|Default
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{E14E246C-4314-4801-852B-FEF79E7000AA}.Development|Default.ActiveCfg = Development
+		{E14E246C-4314-4801-852B-FEF79E7000AA}.Development|Default.Build.0 = Development
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {6DDC6F54-4A89-49A8-8874-DF1290B5CC11}
+	EndGlobalSection
+EndGlobal

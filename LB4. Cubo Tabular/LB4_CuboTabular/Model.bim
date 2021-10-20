@@ -1,0 +1,494 @@
+{
+  "name": "SemanticModel",
+  "compatibilityLevel": 1500,
+  "model": {
+    "culture": "en-US",
+    "discourageImplicitMeasures": true,
+    "dataSources": [
+      {
+        "type": "structured",
+        "name": "SQL/DESKTOP-7C1VTM0;ModeloDWH",
+        "connectionDetails": {
+          "protocol": "tds",
+          "address": {
+            "server": "DESKTOP-7C1VTM0",
+            "database": "ModeloDWH"
+          },
+          "authentication": null,
+          "query": null
+        },
+        "options": {},
+        "credential": {
+          "AuthenticationKind": "UsernamePassword",
+          "kind": "SQL",
+          "path": "desktop-7c1vtm0;ModeloDWH",
+          "Username": "Jocagi",
+          "EncryptConnection": false
+        }
+      }
+    ],
+    "tables": [
+      {
+        "name": "Clientes",
+        "columns": [
+          {
+            "name": "ID",
+            "dataType": "int64",
+            "isHidden": true,
+            "sourceColumn": "ID"
+          },
+          {
+            "name": "CustomerID",
+            "dataType": "int64",
+            "isHidden": true,
+            "sourceColumn": "CustomerID"
+          },
+          {
+            "name": "Nombre",
+            "dataType": "string",
+            "sourceColumn": "BuyingGroupName"
+          },
+          {
+            "name": "Ciudad",
+            "dataType": "string",
+            "sourceColumn": "CityName"
+          },
+          {
+            "name": "StateProvinceCode",
+            "dataType": "string",
+            "isHidden": true,
+            "sourceColumn": "StateProvinceCode"
+          },
+          {
+            "name": "Estado/Provincia",
+            "dataType": "string",
+            "sourceColumn": "StateProvinceName"
+          },
+          {
+            "name": "País",
+            "dataType": "string",
+            "sourceColumn": "CountryName"
+          },
+          {
+            "name": "Límite de crédito",
+            "dataType": "double",
+            "sourceColumn": "CreditLimit"
+          }
+        ],
+        "partitions": [
+          {
+            "name": "Partition",
+            "dataView": "full",
+            "source": {
+              "type": "m",
+              "expression": [
+                "let",
+                "    Source = #\"SQL/DESKTOP-7C1VTM0;ModeloDWH\",",
+                "    dbo_Clientes = Source{[Schema=\"dbo\",Item=\"Clientes\"]}[Data]",
+                "in",
+                "    dbo_Clientes"
+              ]
+            }
+          }
+        ],
+        "hierarchies": [
+          {
+            "name": "Hierarchy1",
+            "levels": [
+              {
+                "name": "CountryName",
+                "ordinal": 0,
+                "column": "País"
+              },
+              {
+                "name": "StateProvinceName",
+                "ordinal": 1,
+                "column": "Estado/Provincia"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "name": "Fecha",
+        "columns": [
+          {
+            "name": "Fecha",
+            "dataType": "dateTime",
+            "sourceColumn": "CalendarDate"
+          },
+          {
+            "name": "dayOfCalendarMonthNum",
+            "dataType": "int64",
+            "sourceColumn": "dayOfCalendarMonthNum"
+          },
+          {
+            "name": "CalendarWeekNum",
+            "dataType": "int64",
+            "sourceColumn": "CalendarWeekNum"
+          },
+          {
+            "name": "dayOfWeekNum",
+            "dataType": "int64",
+            "sourceColumn": "dayOfWeekNum"
+          },
+          {
+            "name": "dayOfCalendarYearNum",
+            "dataType": "int64",
+            "sourceColumn": "dayOfCalendarYearNum"
+          },
+          {
+            "name": "calendarMonthNum",
+            "dataType": "int64",
+            "sourceColumn": "calendarMonthNum"
+          },
+          {
+            "name": "calendarYearNum",
+            "dataType": "int64",
+            "sourceColumn": "calendarYearNum"
+          },
+          {
+            "name": "calendarQuerterNum",
+            "dataType": "int64",
+            "sourceColumn": "calendarQuerterNum"
+          },
+          {
+            "name": "dayOfWeekName",
+            "dataType": "string",
+            "sourceColumn": "dayOfWeekName"
+          },
+          {
+            "name": "calendarMonthName",
+            "dataType": "string",
+            "sourceColumn": "calendarMonthName"
+          }
+        ],
+        "partitions": [
+          {
+            "name": "Partition",
+            "dataView": "full",
+            "source": {
+              "type": "m",
+              "expression": [
+                "let",
+                "    Source = #\"SQL/DESKTOP-7C1VTM0;ModeloDWH\",",
+                "    dbo_Fecha = Source{[Schema=\"dbo\",Item=\"Fecha\"]}[Data]",
+                "in",
+                "    dbo_Fecha"
+              ]
+            }
+          }
+        ],
+        "hierarchies": [
+          {
+            "name": "Hierarchy1",
+            "levels": [
+              {
+                "name": "calendarYearNum",
+                "ordinal": 0,
+                "column": "calendarYearNum"
+              },
+              {
+                "name": "calendarMonthNum",
+                "ordinal": 2,
+                "column": "calendarMonthNum"
+              },
+              {
+                "name": "calendarQuerterNum",
+                "ordinal": 1,
+                "column": "calendarQuerterNum"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "name": "Facturas",
+        "columns": [
+          {
+            "name": "ID",
+            "dataType": "int64",
+            "isHidden": true,
+            "sourceColumn": "ID"
+          },
+          {
+            "name": "InvoiceID",
+            "dataType": "int64",
+            "isHidden": true,
+            "sourceColumn": "InvoiceID"
+          },
+          {
+            "name": "CustomerID",
+            "dataType": "int64",
+            "isHidden": true,
+            "sourceColumn": "CustomerID"
+          },
+          {
+            "name": "Fecha",
+            "dataType": "dateTime",
+            "sourceColumn": "InvoiceDate"
+          },
+          {
+            "name": "StockItemID",
+            "dataType": "int64",
+            "isHidden": true,
+            "sourceColumn": "StockItemID"
+          },
+          {
+            "name": "Cantidad",
+            "dataType": "int64",
+            "sourceColumn": "Quantity"
+          },
+          {
+            "name": "Precio",
+            "dataType": "double",
+            "sourceColumn": "UnitPrice"
+          },
+          {
+            "name": "Impuesto%",
+            "dataType": "double",
+            "sourceColumn": "TaxRate"
+          },
+          {
+            "name": "Impuesto$",
+            "dataType": "double",
+            "sourceColumn": "TaxAmount"
+          },
+          {
+            "name": "Ganancias",
+            "dataType": "double",
+            "sourceColumn": "LineProfit"
+          },
+          {
+            "name": "Precio total",
+            "dataType": "double",
+            "sourceColumn": "ExtendedPrice"
+          },
+          {
+            "name": "CreatedDate",
+            "dataType": "dateTime",
+            "isHidden": true,
+            "sourceColumn": "CreatedDate"
+          },
+          {
+            "type": "calculated",
+            "name": "Total",
+            "dataType": "double",
+            "isDataTypeInferred": true,
+            "expression": "[Cantidad]*[Precio]"
+          }
+        ],
+        "partitions": [
+          {
+            "name": "Partition",
+            "dataView": "full",
+            "source": {
+              "type": "m",
+              "expression": [
+                "let",
+                "    Source = #\"SQL/DESKTOP-7C1VTM0;ModeloDWH\",",
+                "    dbo_Invoices = Source{[Schema=\"dbo\",Item=\"Invoices\"]}[Data]",
+                "in",
+                "    dbo_Invoices"
+              ]
+            }
+          }
+        ],
+        "measures": [
+          {
+            "name": "Cantidad Total",
+            "expression": "SUM([Cantidad])"
+          },
+          {
+            "name": "Ventas Totales",
+            "expression": " SUM(Facturas[Total])"
+          }
+        ]
+      },
+      {
+        "name": "Producto",
+        "columns": [
+          {
+            "name": "ID",
+            "dataType": "int64",
+            "isHidden": true,
+            "sourceColumn": "ID"
+          },
+          {
+            "name": "StockItemID",
+            "dataType": "int64",
+            "isHidden": true,
+            "sourceColumn": "StockItemID"
+          },
+          {
+            "name": "Nombre Producto",
+            "dataType": "string",
+            "sourceColumn": "StockItemName"
+          },
+          {
+            "name": "Proveedor",
+            "dataType": "string",
+            "sourceColumn": "SupplierName"
+          },
+          {
+            "name": "Color",
+            "dataType": "string",
+            "sourceColumn": "ColorName"
+          },
+          {
+            "name": "Paquete unidad",
+            "dataType": "string",
+            "sourceColumn": "UnitPackageTypeName"
+          },
+          {
+            "name": "Paquete Externo",
+            "dataType": "string",
+            "sourceColumn": "OuterPackageTypeName"
+          },
+          {
+            "name": "Marca",
+            "dataType": "string",
+            "sourceColumn": "Brand"
+          },
+          {
+            "name": "Tamaño",
+            "dataType": "string",
+            "sourceColumn": "Size"
+          },
+          {
+            "name": "Tiempo de entrega",
+            "dataType": "int64",
+            "sourceColumn": "LeadTimeDays"
+          },
+          {
+            "name": "Impuesto",
+            "dataType": "double",
+            "sourceColumn": "TaxRate"
+          },
+          {
+            "name": "Precio Unitario",
+            "dataType": "double",
+            "sourceColumn": "UnitPrice"
+          },
+          {
+            "name": "Precrio de venta",
+            "dataType": "double",
+            "sourceColumn": "RecommendedRetailPrice"
+          },
+          {
+            "name": "Peso unitario",
+            "dataType": "double",
+            "sourceColumn": "TypicalWeightPerUnit"
+          }
+        ],
+        "partitions": [
+          {
+            "name": "Partition",
+            "dataView": "full",
+            "source": {
+              "type": "m",
+              "expression": [
+                "let",
+                "    Source = #\"SQL/DESKTOP-7C1VTM0;ModeloDWH\",",
+                "    dbo_StockItem = Source{[Schema=\"dbo\",Item=\"StockItem\"]}[Data]",
+                "in",
+                "    dbo_StockItem"
+              ]
+            }
+          }
+        ]
+      },
+      {
+        "name": "Crecimiento por año",
+        "columns": [
+          {
+            "type": "calculatedTableColumn",
+            "name": "calendarYearNum",
+            "dataType": "int64",
+            "isNameInferred": true,
+            "isDataTypeInferred": true,
+            "sourceColumn": "Fecha[calendarYearNum]"
+          },
+          {
+            "type": "calculatedTableColumn",
+            "name": "$Total",
+            "dataType": "double",
+            "isNameInferred": true,
+            "isDataTypeInferred": true,
+            "sourceColumn": "[$Total]"
+          },
+          {
+            "type": "calculated",
+            "name": "%Crecimiento",
+            "dataType": "double",
+            "isDataTypeInferred": true,
+            "expression": [
+              "CALCULATE(  ",
+              "",
+              "var previous = CALCULATE(",
+              "    var a=CALCULATE( SUM('Crecimiento por año'[calendarYearNum]) ) - 1",
+              "    return CALCULATE(MAX('Crecimiento por año'[$Total]),FILTER(ALL('Crecimiento por año'),'Crecimiento por año'[calendarYearNum]=a))",
+              ")",
+              "",
+              "var actual = CALCULATE(SUM('Crecimiento por año'[$Total]))",
+              "",
+              "var resultado = IF(previous=0, 0, (actual - previous)/previous * 100)",
+              "",
+              "return TRUNC(resultado, 3)",
+              "",
+              ") "
+            ]
+          }
+        ],
+        "partitions": [
+          {
+            "name": "CalculatedTable 1",
+            "source": {
+              "type": "calculated",
+              "expression": [
+                " TOPN(10 -- number of items we want to retrieve",
+                "            ,SUMMARIZE( -- basically means 'do a group by over these columns and aggregate this measure'",
+                "                    'Facturas' -- source table",
+                "                    ,Fecha[calendarYearNum] -- column to group over",
+                "                    ,\"$Total\", SUM('Facturas'[Total]) -- measure, in the format of <name, expression>",
+                "                )",
+                "            ,[$Total] -- take the top 10 according to this measure (name is given in summarize clause)",
+                "        )"
+              ]
+            }
+          }
+        ]
+      }
+    ],
+    "relationships": [
+      {
+        "name": "04aafab4-d678-4e1a-95e7-b6483e8986d2",
+        "fromTable": "Facturas",
+        "fromColumn": "Fecha",
+        "toTable": "Fecha",
+        "toColumn": "Fecha"
+      },
+      {
+        "name": "5f77bced-c2c6-46f0-b1b5-d2f977a46f40",
+        "fromTable": "Facturas",
+        "fromColumn": "CustomerID",
+        "toTable": "Clientes",
+        "toColumn": "CustomerID"
+      },
+      {
+        "name": "872fe633-33c6-4168-ad18-61106ec45b02",
+        "fromTable": "Facturas",
+        "fromColumn": "StockItemID",
+        "toTable": "Producto",
+        "toColumn": "StockItemID"
+      }
+    ],
+    "annotations": [
+      {
+        "name": "ClientCompatibilityLevel",
+        "value": "600"
+      }
+    ]
+  },
+  "id": "SemanticModel"
+}

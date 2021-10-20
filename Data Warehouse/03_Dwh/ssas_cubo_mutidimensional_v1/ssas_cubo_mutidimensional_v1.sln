@@ -1,0 +1,23 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.28307.1622
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{D2ABAB84-BF74-430A-B69E-9DC6D40DDA17}") = "ssas_cubo_mutidimensional_v1", "ssas_cubo_mutidimensional_v1\ssas_cubo_mutidimensional_v1.dwproj", "{2ABBBA69-4B18-47A9-84C8-A0B53A8ACC1A}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Development|Default = Development|Default
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{2ABBBA69-4B18-47A9-84C8-A0B53A8ACC1A}.Development|Default.ActiveCfg = Development
+		{2ABBBA69-4B18-47A9-84C8-A0B53A8ACC1A}.Development|Default.Build.0 = Development
+		{2ABBBA69-4B18-47A9-84C8-A0B53A8ACC1A}.Development|Default.Deploy.0 = Development
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {3CE393B4-7AFA-42C1-9B61-844F75030D2A}
+	EndGlobalSection
+EndGlobal
